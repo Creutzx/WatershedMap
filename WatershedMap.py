@@ -27,15 +27,3 @@ for dirpath, dirnames, filenames in walk:
 
 del addlayer, mxd, df
 
-
-
-
-addLayer = arcpy.mapping.Layer(str_dir_main + "\\" + str_lyr_cur)
-
-arcpy.mapping.AddLayer(df, addLayer, "BOTTOM")
-arcpy.RefreshTOC()
-arcpy.RefreshActiveView()
-
-mxd.saveACopy(str_dir_main + "\\" + str_mxd_save)
-
-del mxd, df, addLayer
