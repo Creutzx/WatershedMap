@@ -3,8 +3,8 @@ def WatershedMap(str_dir_main, str_mxd_blank, str_df_cur, str_mxd_save_pre, str_
     import os
 
     with open(r"\\DEQHQ1\TMDL\TMDL_WR\MidCoast\GIS\Figures\Upper_Yaquina_Maps\WatershedMap.txt", "r") as txtfile:
-        txtfile.read()
-        txtfile.close()
+        contents = txtfile.read()
+    print(contents)
 
     for lyrName in lyrList:
         mxd = arcpy.mapping.MapDocument(str_dir_main + "\\" + str_mxd_blank)
