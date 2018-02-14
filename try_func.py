@@ -1,7 +1,4 @@
-str_file_names = r"\\DEQHQ1\TMDL\TMDL_WR\MidCoast\GIS\Figures\Upper_Yaquina_Maps\WatershedMap_brc.txt"
-
 str_file_input = r"\\DEQHQ1\TMDL\TMDL_WR\MidCoast\GIS\Figures\Upper_Yaquina_Maps\WatershedMap_kmb.txt"
-
 
 def WatershedMap_func(str_file_input):
     import arcpy
@@ -25,6 +22,5 @@ def WatershedMap_func(str_file_input):
         mxd.saveACopy(str_dir_main + "\\" + str_mxd_save_pre + lyrName + str_mxd_save_post)
 
         del addlayer, df, mxd
-
 
 WatershedMap_func(str_file_input)
