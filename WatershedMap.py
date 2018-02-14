@@ -1,11 +1,15 @@
-def WatershedMap(str_dir_main, str_mxd_blank, str_df_cur, str_mxd_save_pre, str_mxd_save_post, lyr_save_pre, lyr_save_post):
+str_file_input = r"\\DEQHQ1\TMDL\TMDL_WR\MidCoast\GIS\Figures\Upper_Yaquina_Maps\WatershedMap_kmb.txt"
+
+def WatershedMap_func(str_file_input):
     import arcpy
     import os
 
-    with open(r"\\DEQHQ1\TMDL\TMDL_WR\MidCoast\GIS\Figures\Upper_Yaquina_Maps\WatershedMap.txt", "r") as txtfile:
-        contents = txtfile.read()
-    print(contents)
-    exec(contents)
+    with open(str_file_input, "r") as txtfile:
+        contents = txtfile.readline().splitlines()
+        txtfile.close()
+
+    for ii in contents:
+        exec(ii)
 
     for lyrName in lyrList:
         mxd = arcpy.mapping.MapDocument(str_dir_main + "\\" + str_mxd_blank)
@@ -19,4 +23,4 @@ def WatershedMap(str_dir_main, str_mxd_blank, str_df_cur, str_mxd_save_pre, str_
 
         del addlayer, df, mxd
 
-WatershedMap("str_dir_main", "str_mxd_blank", "str_df_cur", "str_mxd_save_pre", "str_mxd_save_post", "lyr_save_pre", "lyr_save_post")
+WatershedMap_func(str_file_input)
