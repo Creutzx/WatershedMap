@@ -7,10 +7,12 @@ def WatershedMap_func(str_file_input):
     import arcpy
     import os
 
-    with open(str_file_names, "r") as txtfile:
-        contents = txtfile.readlines()
-    exec(contents)
-    txtfile.close()
+    with open(str_file_input, "r") as txtfile:
+        contents = txtfile.readline().splitlines()
+        txtfile.close()
+
+    for ii in contents:
+        exec(ii)
 
     for lyrName in lyrList:
         mxd = arcpy.mapping.MapDocument(str_dir_main + "\\" + str_mxd_blank)
